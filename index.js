@@ -2,6 +2,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d')
 
 let score = 0
+let lives = 3
 
 //Paddle Properties
 const paddle = {
@@ -26,6 +27,7 @@ const ball = {
     x: canvas.width / 2,
     y: 850,
     size: 10, 
+    radius: 10,
     speed: 4,
     dx: 4,
     dy: -4
@@ -40,8 +42,8 @@ function drawBall() {
 }
 
 //Brick Properties
-const rowsOfBricks = 12;
-const columnsOfBricks = 8;
+const rowsOfBricks = 6;
+const columnsOfBricks = 12;
 
 const brickSize = {
     w: 100,
@@ -53,9 +55,9 @@ const brickSize = {
 }
 
 const bricks = []
-for (let i = 0; i < rowsOfBricks; i++) {
+for (let i = 0; i < columnsOfBricks; i++) {
     bricks[i] = []
-    for (let j = 0; j < columnsOfBricks; j++) {
+    for (let j = 0; j < rowsOfBricks; j++) {
         const x = i * (brickSize.w + brickSize.padding) + brickSize.offsetX
         const y = j * (brickSize.h + brickSize.padding) + brickSize.offsetY
         bricks[i][j] = {x, y, ...brickSize}
@@ -73,6 +75,7 @@ function drawBricks() {
         })
     })
 }
+
 
 //Paddle Movement
 function movePaddle() {
@@ -106,9 +109,43 @@ function moveBall() {
         ball.x + ball.size < paddle.x + paddle.w && 
         ball.y + ball.size > paddle.y
     ) {
-        ball.dy *= -ball.speed;
+        ball.dy = -ball.speed;
     }
+
+    if (
+        ball.y + ball.size > canvas.height
+    ) {
+        resetBall();
+    }
+
+function resetBall() {
+    ball.x = canvas.width/2
+    ball.y = paddle.y - ball.size
+    ball.dx = 4 
+    ball.dy = -4
 }
+
+//Brick Collision  
+bricks.forEach(column => {
+    column.forEach(brick => {
+         if (brick.visible) {
+            if (
+                ball.x - ball.size - ball.radius >= brick.x && //Check left side collision
+                ball.x + ball.size + ball.radius <= brick.x + brick.w && // right side collision
+                ball.y + ball.size + ball.radius >= brick.y && // top side collision
+                ball.y - ball.size - ball.radius <= brick.y + brick.h //bottom collision
+            ) {
+                ball.dy *= -1
+                brick.visible = false
+            }
+        }
+        })
+    })
+}
+
+
+
+
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -119,7 +156,7 @@ function draw() {
 
 function drawPoints() {
     ctx.font = '20 px Arial #ffffff';
-    ctx.fillText(`Score: ${score}`, canvas.width - 1000, 30)
+    ctx.fillText(`Score: ${score}`, 1300, 0)
 }
 
 draw();
