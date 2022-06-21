@@ -1,3 +1,44 @@
-#screenSize {
-    border: 3px solid red;
+canvas {
+    border: 2px solid red;
+}
+
+.flex-container {
+    display: flex;
+    /*background-color: #272539;*/
+    color: white;
+    background-image: url(/images/gif1.gif)
+}
+
+.flex-child {
+    flex: 1;
+    border: 2px solid yellow;
+    align-items: center;
+    height: 930px;
+    
+}  
+
+.flex-child:first-child {
+    margin-right: 20px;
+} 
+
+div {
+    font-size: 30px;
+    text-align: center;
+}
+
+#icons {
+    height: 30px;
+    width: auto;
+}
+
+.star {
+    vertical-align: text-top;
+}
+
+.heart {
+    vertical-align: sub;
+}
+
+.enter {
+    vertical-align: text-top;
 }

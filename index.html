@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bricker Breaker</title>
-    <link href="style.css" link="stylesheet">
-    <style>
-        #gameScreen {
-            border: 3px solid black;
-        }
-    </style>
+    <link href="style.css" rel="stylesheet">
 </head>
-<body>
-
-    <div>
-        <canvas id="screenSize" width="800" height="600"></canvas>
+<body class="flex-container">
+    <div class="flex-child">
+        <h1>Brick Breaker</h1>
+        <h2>How to Play</h2>
+        <p>Use the <img src="images/A.png"> and <img src="images/D.png"> keys to move side-to-side</p>
+        <p>Click <img src="images/SPACEALTERNATIVE.png"> to launch the ball</p>
+        <p><span class="star"><img src="images/star.png" id="icons"></span> will give you an extra ball, up to three balls!</p>
+        <p>Pick up <span class="heart"><img src="images/heart.png" id="icons"></span> to get an extra life, for a max of five lives!</p>
+        <p>Click <span class="enter"><img src="images/ENTER.png"></span> to start!</p>
     </div>
 
-    <script src="js/index.js"></script>
+    <canvas id="canvas" width="1400" height= "930"></canvas>
+    <script src="index.js"></script>
 </body>
 </html>
