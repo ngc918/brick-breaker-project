@@ -17,7 +17,7 @@ const paddle = {
 function drawPaddle() {
     ctx.beginPath()
     ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h);
-    ctx.fillStyle = '#ffffff'
+    ctx.fillStyle = '/images/paddle.png'
     ctx.fill()
     ctx.closePath()
 }
@@ -129,11 +129,10 @@ function resetBall() {
 bricks.forEach(column => {
     column.forEach(brick => {
          if (brick.visible) {
-            if (
-                ball.x - ball.size - ball.radius >= brick.x && //Check left side collision
-                ball.x + ball.size + ball.radius <= brick.x + brick.w && // right side collision
-                ball.y + ball.size + ball.radius >= brick.y && // top side collision
-                ball.y - ball.size - ball.radius <= brick.y + brick.h //bottom collision
+            if (ball.x + ball.radius > brick.x &&
+                ball.x - ball.radius < brick.x + brick.w &&
+                ball.y + ball.radius > brick.y &&
+                ball.y - ball.radius < brick.y + brick.h
             ) {
                 ball.dy *= -1
                 brick.visible = false
@@ -142,10 +141,6 @@ bricks.forEach(column => {
         })
     })
 }
-
-
-
-
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -190,3 +185,22 @@ function keyDown(e) {
 //keyboard event handlers
 document.addEventListener('keyup', keyUp);
 document.addEventListener('keydown', keyDown)
+/*
+const lvl1 = [
+    [6,6,6,6,6,6,6,6,6,6,6,6],
+    [6,6,6,6,6,6,6,6,6,6,6,6],
+    [4,4,4,4,4,4,4,4,4,4,4,4],
+    [4,4,4,4,4,4,4,4,4,4,4,4],
+    [2,2,2,2,2,2,2,2,2,2,2,2],
+    [2,2,2,2,2,2,2,2,2,2,2,2]
+];
+
+const lvl2 = [
+    [6,0,0,0,6,4,4,6,0,0,0,6],
+    [4,6,0,0,0,6,6,0,0,0,6,4],
+    [2,4,6,0,0,2,2,0,0,6,4,2],
+    [2,4,6,0,0,2,2,0,0,6,4,2],
+    [4,6,0,0,0,6,6,0,0,0,6,4],
+    [6,0,0,0,6,4,4,6,0,0,0,6]
+]*/
+
