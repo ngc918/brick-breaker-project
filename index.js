@@ -14,12 +14,16 @@ const paddle = {
     dx: 0
 }
 
+const paddle_img = new Image()
+paddle_img.src = "./images/paddle.png"
+
 function drawPaddle() {
-    ctx.beginPath()
-    ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h);
-    ctx.fillStyle = '/images/paddle.png'
-    ctx.fill()
-    ctx.closePath()
+    // ctx.beginPath()
+    // ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h);
+    // ctx.fillStyle = '/images/paddle.png'
+    // ctx.fill()
+    // ctx.closePath()
+    ctx.drawImage(paddle_img, paddle.x, paddle.y, paddle.w, paddle.h,)
 }
 
 //Ball properties
@@ -33,12 +37,16 @@ const ball = {
     dy: -4
 }
 
+const ball_img = new Image()
+ball_img.src = "./images/ball.png"
+
 function drawBall() {
-    ctx.beginPath();
-    ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2)
-    ctx.fillStyle = '#ffffff'
-    ctx.fill()
-    ctx.closePath()
+    // ctx.beginPath();
+    // ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2)
+    // ctx.fillStyle = '#ffffff'
+    // ctx.fill()
+    // ctx.closePath()
+    ctx.drawImage(ball_img, ball.x, ball.y, 20, 20)
 }
 
 //Brick Properties
@@ -63,15 +71,18 @@ for (let i = 0; i < columnsOfBricks; i++) {
         bricks[i][j] = {x, y, ...brickSize}
     }
 }
+const brick_img = new Image()
+brick_img.src = "./images/green-tile.png"
 
 function drawBricks() {
     bricks.forEach(column => { 
         column.forEach(brick => {
             ctx.beginPath();
             ctx.rect(brick.x, brick.y, brick.w, brick.h);
-            ctx.fillStyle = brick.visible ? '#ffffff' : 'transparent';
+            ctx.fillStyle = brick.visible ? ctx.drawImage(brick_img, brick.x, brick.y, brick.w, brick.h) : 'transparent';
             ctx.fill();
             ctx.closePath();
+            //ctx.drawImage(brick_img, brick.x, brick.y, brick.w, brick.h)
         })
     })
 }
