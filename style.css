@@ -6,7 +6,7 @@ canvas {
     display: flex;
     /*background-color: #272539;*/
     color: white;
-    background-image: url(/images/gif1.gif)
+    background-image: url(./images/gif1.gif)
 }
 
 .flex-child {
