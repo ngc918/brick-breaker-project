@@ -11,14 +11,18 @@
     <div class="flex-child">
         <h1>Brick Breaker</h1>
         <h2>How to Play</h2>
-        <p>Use the <img src="images/A.png"> and <img src="images/D.png"> keys to move side-to-side</p>
-        <p>Click <img src="images/SPACEALTERNATIVE.png"> to launch the ball</p>
-        <p><span class="star"><img src="images/star.png" id="icons"></span> will give you an extra ball, up to three balls!</p>
-        <p>Pick up <span class="heart"><img src="images/heart.png" id="icons"></span> to get an extra life, for a max of five lives!</p>
-        <p>Click <span class="enter"><img src="images/ENTER.png"></span> to start!</p>
+        <p>Use the <img src="/assests/images/A.png"> and <img src="/assests/images/D.png"> keys to move side-to-side</p>
+        <p>Click <img src="/assests/images/SPACEALTERNATIVE.png"> to launch the ball</p>
+        <p>If you fail to hit the ball, it will reset back onto your paddle</p>
+        <p><span class="heart"><img src="assests/images/heart.png" id="icons"></span> represent the amount of lives you have</p>
+        <p>If you drop the ball with zero lives remaining, it's GAME OVER!</p>
+        <p><span class="star"><img src="/assests/images/star.png" id="icons"></span> will give you an extra ball, up to three balls!</p>
+        <p>Click <span class="enter"><img src="/assests/images/ENTER.png"></span> to start!</p>
     </div>
 
     <canvas id="canvas" width="1400" height= "930"></canvas>
+    <p class="scoreCount"><span>Score:</span> <span id="scoreElement">0</span></p>
+    <!-- <p class="lifeCount"><span>Lives:</span> <span id="lifeElement"></span></p> -->
     <script src="index.js"></script>
 </body>
 </html>

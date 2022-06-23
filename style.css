@@ -6,7 +6,7 @@ canvas {
     display: flex;
     /*background-color: #272539;*/
     color: white;
-    background-image: url(./images/gif1.gif)
+    background-image: url(./assests/images/gif1.gif)
 }
 
 .flex-child {
@@ -41,4 +41,26 @@ div {
 
 .enter {
     vertical-align: text-top;
+}
+
+.scoreCount {
+    position: absolute;
+    /* z-index: 10; */
+    color: white;
+    right: 20px;
+    top: 15px;
+    margin:0;
+    font-size: 20px;
+    font-family: monospace ;
+}
+
+.lifeCount {
+    position: absolute;
+    /* z-index: 10; */
+    color: white;
+    left: 520px;
+    top: 20px;
+    margin:0;
+    font-size: 20px;
+    font-family: monospace ; 
 }
