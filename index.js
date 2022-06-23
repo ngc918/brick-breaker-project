@@ -110,6 +110,7 @@ for (let i = 0; i < columnsOfBricks; i++) {
         bricks[i][j] = {x, y, ...brickSize}
     }
 }
+
 const brick_img = new Image()
 brick_img.src = "./assests/images/green-tile.png"
 
